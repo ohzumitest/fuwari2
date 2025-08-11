@@ -43,11 +43,47 @@ A static blog template built with [Astro](https://astro.build).
        bun create fuwari@latest
        deno run -A npm:create-fuwari@latest
        ```
-2. To edit your blog locally, clone your repository, run `pnpm install` to install dependencies.
+2. Set up microCMS:
+    - Create a microCMS account and service
+    - Create APIs for `blogs`, `categories`, and `tags`
+    - Copy `.env.example` to `.env` and set your microCMS credentials
+3. To edit your blog locally, clone your repository, run `pnpm install` to install dependencies.
     - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
-3. Edit the config file `src/config.ts` to customize your blog.
-4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
+4. Edit the config file `src/config.ts` to customize your blog.
 5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
+
+## 📝 microCMS Setup
+
+This blog now uses microCMS as the content management system. You need to set up the following APIs in your microCMS service:
+
+### blogs API
+```json
+{
+  "title": "テキストフィールド",
+  "content": "リッチエディタ",
+  "description": "テキストフィールド（任意）",
+  "image": "画像（任意）",
+  "tags": "複数コンテンツ参照 - tags（任意）",
+  "category": "コンテンツ参照 - categories（任意）",
+  "draft": "真偽値（任意）"
+}
+```
+
+### categories API
+```json
+{
+  "name": "テキストフィールド",
+  "slug": "テキストフィールド"
+}
+```
+
+### tags API
+```json
+{
+  "name": "テキストフィールド",
+  "slug": "テキストフィールド"
+}
+```
 
 ## 📝 Frontmatter of Posts
 
